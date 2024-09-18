@@ -10,26 +10,32 @@ public class Assignment1 {
         System.out.println("M   M     S");
         System.out.println("M   M  SSSS");
 
-        // 2. Convert Fahrenheit to Celsius.
         Scanner scanner = new Scanner(System.in);
+
+        // 2. Convert Fahrenheit to Celsius
         System.out.print("Enter a number in Fahrenheit: ");
         double fahrenheit = scanner.nextDouble();
         double celsius = (fahrenheit - 32) * 5 / 9;
-        System.out.println(fahrenheit + " Fahrenheit is " + String.format("%.2f", celsius) + " Celsius.");
 
-        // 3. Reverse input string and trim outside characters.
+        // 3. Reverse input string and trim outside characters
         System.out.print("Enter a 5-character string: ");
         String userInput = scanner.next();
+        String trimmedReversed = "";
         if (userInput.length() == 5) {
-            String trimmedReversed = new StringBuilder(userInput.substring(1, 4)).reverse().toString();
-            System.out.println("Trimmed and reversed string: " + trimmedReversed);
+            trimmedReversed = new StringBuilder(userInput.substring(1, 4)).reverse().toString();
         } else {
             System.out.println("Please enter a valid 5-character string.");
+            return;
         }
 
-        // 4. Generate and save a random number between 32 and 16,384 inclusive.
+        // 4. Generate and save a random number between 32 and 16,384 inclusive
         Random random = new Random();
         int randomNumber = 32 + random.nextInt(16353); // Generates a random number between 32 and 16384
-        System.out.println("Random number generated: " + randomNumber);
+
+        // 5. Combine the results of steps 2 – 4 into one single line
+        String combinedResult = String.format("%.2f", celsius) + trimmedReversed + randomNumber;
+
+        // Print the combined result in one line
+        System.out.println("\nCombined Output: " + combinedResult);
     }
 }
